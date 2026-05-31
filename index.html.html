@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aldeara — Childcare matched, not listed.</title>
-<meta name="description" content="A childcare matching platform built by a career nanny. Caregivers are seen for free; families and caregivers match on values and fit, not just rate and availability. Serving New England.">
+<meta name="description" content="A childcare matching platform built by a career nanny. Caregivers match for free. Everyone matches on values and fit. Serving Coastal New England.">
 <meta property="og:title" content="Aldeara — Childcare matched, not listed.">
 <meta property="og:description" content="Find the caregiver your family has been looking for — matched on values, not just distance.">
 <meta property="og:image" content="https://match.aldeara.com/og-image.png">
@@ -114,6 +114,7 @@
   .card:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(10,75,94,0.1)}
   .card h3{font-size:1.7rem;margin-bottom:14px}
   .card p{opacity:0.9;margin-bottom:22px}
+  .card .note{font-size:0.85rem;opacity:0.65;font-style:italic;margin-top:14px}
 
   /* pricing */
   .pricing{background:#efe8db}
@@ -144,6 +145,12 @@
   .founder blockquote{font-family:var(--display);font-size:clamp(1.3rem,2.6vw,1.7rem);line-height:1.4;color:var(--teal)}
   .founder .sig{margin-top:18px;font-family:var(--body);font-size:0.95rem;opacity:0.8}
 
+  /* founder story */
+  .story{display:none;margin-top:28px;padding:28px;background:#fffdf8;border:1px solid rgba(30,46,40,0.1);border-radius:14px}
+  .story.open{display:block}
+  .story p{font-size:1rem;line-height:1.7;margin-bottom:14px;opacity:0.9}
+  .story p:last-child{margin-bottom:0}
+
   /* final cta */
   .final{background:var(--teal);color:var(--cream);text-align:center}
   .final h2{color:var(--cream);font-size:clamp(2rem,4vw,3rem);margin-bottom:14px}
@@ -172,7 +179,6 @@
       <a href="#pricing">Pricing</a>
       <a href="#founder">Our story</a>
       <a href="#faq">FAQ</a>
-      <!-- TODO: APP_URL -->
       <a href="https://match.aldeara.com" class="nav-cta">Open the app</a>
     </div>
     <button class="hamburger" aria-label="Menu" onclick="this.classList.toggle('open');document.getElementById('mobileMenu').classList.toggle('open')">
@@ -186,7 +192,6 @@
   <a href="#pricing" onclick="document.getElementById('mobileMenu').classList.remove('open');document.querySelector('.hamburger').classList.remove('open')">Pricing</a>
   <a href="#founder" onclick="document.getElementById('mobileMenu').classList.remove('open');document.querySelector('.hamburger').classList.remove('open')">Our story</a>
   <a href="#faq" onclick="document.getElementById('mobileMenu').classList.remove('open');document.querySelector('.hamburger').classList.remove('open')">FAQ</a>
-  <!-- TODO: APP_URL -->
   <a href="https://match.aldeara.com" class="nav-cta">Open the app</a>
 </div>
 
@@ -195,9 +200,8 @@
   <div class="wrap">
     <p class="tagline reveal d1">Childcare matched, not listed.</p>
     <h1 class="reveal d2">Care that fits your life,<br>not just your calendar.</h1>
-    <p class="lead reveal d3">A childcare matching platform built by a career nanny. Caregivers are seen for free, and families and caregivers match on values and fit — not just rate and availability. Serving New England.</p>
+    <p class="lead reveal d3">A childcare matching platform built by a career nanny. Caregivers match for free. Everyone matches on values and fit — not just rate and logistics. Serving Coastal New England.</p>
     <div class="ctas reveal d4">
-      <!-- TODO: APP_URL -->
       <a href="https://match.aldeara.com" class="btn btn-teal">I'm a caregiver — join free</a>
       <a href="https://match.aldeara.com" class="btn btn-clay">I'm a family — find care</a>
     </div>
@@ -208,7 +212,7 @@
 <section class="promise">
   <div class="wrap">
     <p class="eyebrow">Why Aldeara exists</p>
-    <p>The big platforms charge caregivers to be seen and match on almost nothing. Aldeara does the opposite. <strong>Caregivers are never charged.</strong> Families and caregivers match on values, care philosophy, and how a home actually feels — and <strong>families only pay once they've found someone worth talking to.</strong></p>
+    <p>The big platforms charge caregivers to be seen and match on almost nothing. Aldeara does the opposite. <strong>Caregivers are never charged.</strong> Families and caregivers match on values, care philosophy, and how a home actually feels. <strong>Families only pay after they've seen their matches and had their first conversation.</strong></p>
   </div>
 </section>
 
@@ -223,17 +227,17 @@
       <div class="step">
         <div class="num">1</div>
         <h3>Build your profile</h3>
-        <p>Answer 30+ questions across logistics, values, care philosophy, and personality. Screen time rules, discipline approach, independence, faith, communication style — all of it. It takes about 10 minutes, and every question shapes who you see.</p>
+        <p>Answer 30+ questions across logistics, values, care philosophy, and personality. Screen time rules, discipline approach, comfort around a caregiver's independence, faith, communication style — all of it. It takes about 10 minutes, and every question shapes who you see.</p>
       </div>
       <div class="step">
         <div class="num">2</div>
         <h3>Match on the non-negotiables</h3>
-        <p>Hard filters handle the dealbreakers silently — faith expectations, LGBTQ+ affirmation, comfort with firearms or work-from-home parents — so a mismatch never shows up in your queue. You see your strongest matches first.</p>
+        <p>Hard filters handle the dealbreakers silently — faith expectations, LGBTQ+ affirmation, comfort with firearms or work-from-home parents — so a mismatch never shows up in your queue. You only see the people who align with you.</p>
       </div>
       <div class="step">
         <div class="num">3</div>
         <h3>Connect directly</h3>
-        <p>Move through your matches, read their prompts and references, and start a conversation with the ones who fit. No algorithm hand-picks for you — a nanny's judgment is built into what the platform decides matters.</p>
+        <p>Move through your matches, read their prompts and references, and start a conversation with the ones who fit. A career nanny built it to surface the best matches. You choose the perfect fit.</p>
       </div>
     </div>
   </div>
@@ -246,15 +250,14 @@
       <div class="card">
         <p class="eyebrow">For caregivers</p>
         <h3>You'll never pay to be seen.</h3>
-        <p>No subscription to show up, no premium tier, no pay-to-play — ever. Free to join, free to be matched, free to message. Built by a nanny who got tired of how it works everywhere else.</p>
-        <!-- TODO: APP_URL -->
+        <p>No subscription to show up, no pay-to-play. Free to join, free to be matched, free to message. Built by a nanny who got tired of how it works everywhere else.</p>
         <a href="https://match.aldeara.com" class="btn btn-teal">Join free</a>
+        <p class="note">We may add a premium tier down the road if caregivers ask for more features.</p>
       </div>
       <div class="card">
         <p class="eyebrow">For families</p>
         <h3>Find someone who fits your actual life.</h3>
         <p>Match on your values, your home, and your way of doing things — not just an open slot on a calendar. Your first match conversation is completely free, no card required.</p>
-        <!-- TODO: APP_URL -->
         <a href="https://match.aldeara.com" class="btn btn-clay">Find care</a>
       </div>
     </div>
@@ -278,7 +281,7 @@
           <li>Visible and matchable for free</li>
           <li>Unlimited messaging</li>
           <li>Request and receive references</li>
-          <li>No subscription required — ever</li>
+          <li>No subscription required</li>
         </ul>
       </div>
       <div class="price">
@@ -287,7 +290,7 @@
         <div class="sub">Then $24.99/mo · $60/qtr · $199/yr</div>
         <ul>
           <li>First conversation — no card needed</li>
-          <li>Subscribe only to keep matching</li>
+          <li>Subscribe only to keep connecting</li>
           <li>Dual-parent compatibility matching</li>
           <li>Cancel anytime</li>
         </ul>
@@ -310,7 +313,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is it really free for caregivers?</button>
-        <div class="faq-a">Yes. No subscription, no premium tier, no pay-to-play. You can join, build your profile, get matched, message families, and request references — all without paying anything. This isn't a trial. It's the model.</div>
+        <div class="faq-a">Yes. No subscription, no premium tier, no pay-to-play. You can join, build your profile, get matched, message families, and request references — all without paying anything.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">How does the matching actually work?</button>
@@ -318,11 +321,11 @@
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">What does "first match free" mean for families?</button>
-        <div class="faq-a">Your first matched conversation is completely free — no credit card required. You can message, schedule an interview, and decide if it's a fit. If you want to connect with more caregivers after that, you subscribe. Think of it as trying before you commit.</div>
+        <div class="faq-a">Your first conversation is completely free — no credit card required. You can message, schedule an interview, and decide if it's a fit. If you want to connect with more caregivers after that, you subscribe.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is dual-parent matching?</button>
-        <div class="faq-a">If you have a partner, they can take the 8-question personality quiz separately. Aldeara then matches caregivers against both of your answers, so the person you hire fits the whole household — not just whoever filled out the profile.</div>
+        <div class="faq-a">Is your co-parent nearby? Have them take the 8-question personality quiz right from your phone — no separate account needed. Aldeara then matches caregivers against both of your answers, so the person you hire fits the whole household, not just whoever filled out the profile.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Does Aldeara run background checks?</button>
@@ -334,7 +337,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">What areas do you serve?</button>
-        <div class="faq-a">Aldeara is launching in the Portsmouth–Boston corridor and greater New England. The platform works anywhere, but our initial caregiver community is concentrated in this region. If you're outside New England and want to be notified when we expand, join and we'll reach out.</div>
+        <div class="faq-a">Aldeara is launching in the Portsmouth–Boston corridor and Coastal New England. The platform works anywhere, but our initial caregiver community is concentrated in this region. If you're outside New England and want to be notified when we expand, join and we'll reach out.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I cancel anytime?</button>
@@ -348,12 +351,17 @@
 <section id="founder">
   <div class="wrap">
     <div class="founder">
-      <!-- TODO: replace with your real founder photo -->
-      <div class="photo">[ Founder photo ]</div>
+      <img src="/founder.jpg" alt="Rowan, founder of Aldeara" class="photo" style="object-fit:cover">
       <div>
         <p class="eyebrow">Built by a nanny</p>
         <blockquote>"After my last placement ended over a values mismatch I couldn't bridge — with a toddler at home — I built the thing I'd wished existed the whole time I was looking for work."</blockquote>
-        <p class="sig">— Rowan, founder of Aldeara · career nanny, nearly a decade &nbsp;·&nbsp; <a href="#" style="color:var(--teal-bright);font-weight:500;text-decoration:underline">Read the whole story →</a></p>
+        <p class="sig">— Rowan, founder of Aldeara · career nanny, nearly a decade</p>
+        <!-- Story section: toggle open/closed -->
+        <a href="javascript:void(0)" onclick="document.getElementById('founderStory').classList.toggle('open');this.textContent=document.getElementById('founderStory').classList.contains('open')?'Close the story ↑':'Read the whole story →'" style="color:var(--teal-bright);font-weight:500;text-decoration:underline;display:inline-block;margin-top:12px">Read the whole story →</a>
+        <div class="story" id="founderStory">
+          <!-- TODO: Rowan will write this in her own voice. Placeholder for now. -->
+          <p>The full founder story will go here — written by Rowan, in her own words.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -365,7 +373,6 @@
     <p class="tagline">Childcare matched, not listed.</p>
     <h2>Come find your people.</h2>
     <div class="ctas">
-      <!-- TODO: APP_URL -->
       <a href="https://match.aldeara.com" class="btn btn-clay">I'm a caregiver — join free</a>
       <a href="https://match.aldeara.com" class="btn btn-ghost">I'm a family — find care</a>
     </div>
@@ -378,7 +385,7 @@
     <div class="ftop">
       <a href="#" class="brand">AL<span style="color:var(--clay)">DEAR</span>A</a>
       <div class="links">
-        <!-- TODO: social + email -->
+        <!-- TODO: social links -->
         <a href="#">Instagram</a>
         <a href="#">Facebook</a>
         <a href="mailto:hello@aldeara.com">hello@aldeara.com</a>
@@ -389,7 +396,7 @@
     <div class="safety">
       <strong>A note on safety.</strong> Aldeara helps families and caregivers find and connect with each other. We do not run background checks in this version, so please vet your matches as carefully as you would any caregiver or family you bring into your home. Trust is built between you — we just help you meet.
     </div>
-    <div class="copyright">&copy; 2026 Aldeara. Serving the Portsmouth–Boston corridor and New England.</div>
+    <div class="copyright">&copy; 2026 Aldeara. Serving the Portsmouth–Boston corridor and Coastal New England.</div>
   </div>
 </footer>
 
