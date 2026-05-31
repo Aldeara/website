@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aldeara — Childcare matched, not listed.</title>
+<meta name="description" content="A childcare matching platform built by a career nanny. Caregivers are seen for free; families and caregivers match on values and fit, not just rate and availability. Serving New England.">
+<meta property="og:title" content="Aldeara — Childcare matched, not listed.">
+<meta property="og:description" content="Find the caregiver your family has been looking for — matched on values, not just distance.">
+<meta property="og:image" content="https://match.aldeara.com/og-image.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aldeara.com">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --teal:#0a4b5e;
+    --teal-bright:#4a9e8e;
+    --sage:#6b9478;
+    --clay:#c68b7b;
+    --cream:#f5f0e8;
+    --ink:#1e2e28;
+    --display:'EB Garamond', Georgia, serif;
+    --body:'DM Sans', system-ui, sans-serif;
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--body);
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(circle at 20% 0%, rgba(107,148,120,0.06), transparent 45%),
+                     radial-gradient(circle at 90% 100%, rgba(198,139,123,0.07), transparent 40%);
+    background-attachment:fixed;
+  }
+  h1,h2,h3{font-family:var(--display);font-weight:600;color:var(--teal);line-height:1.1;letter-spacing:-0.01em}
+  a{color:inherit}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .eyebrow{font-family:var(--body);font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal-bright);margin-bottom:14px}
+
+  /* ---------- nav ---------- */
+  header{position:sticky;top:0;z-index:50;background:rgba(245,240,232,0.85);backdrop-filter:blur(8px);border-bottom:1px solid rgba(30,46,40,0.08)}
+  nav{display:flex;align-items:center;justify-content:space-between;max-width:var(--maxw);margin:0 auto;padding:16px 24px}
+  .brand{font-family:var(--display);font-weight:600;font-size:1.5rem;letter-spacing:0.18em;color:var(--ink);text-decoration:none}
+  .brand .dear{color:var(--clay)}
+  .navlinks{display:flex;gap:28px;align-items:center}
+  .navlinks a{font-size:0.92rem;text-decoration:none;color:var(--ink);opacity:0.8;transition:opacity .2s}
+  .navlinks a:hover{opacity:1}
+  .navlinks .nav-cta{background:var(--teal);color:var(--cream);padding:9px 18px;border-radius:999px;opacity:1;font-weight:500}
+
+  /* mobile nav */
+  .hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;flex-direction:column;gap:5px}
+  .hamburger span{display:block;width:24px;height:2px;background:var(--ink);border-radius:2px;transition:transform .25s ease, opacity .2s ease}
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .hamburger.open span:nth-child(2){opacity:0}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .mobile-menu{display:none;position:fixed;top:61px;left:0;right:0;bottom:0;background:rgba(245,240,232,0.97);backdrop-filter:blur(12px);z-index:40;flex-direction:column;align-items:center;justify-content:center;gap:28px}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{font-family:var(--display);font-size:1.5rem;text-decoration:none;color:var(--teal);font-weight:600}
+  .mobile-menu .nav-cta{font-family:var(--body);font-size:1rem;background:var(--teal);color:var(--cream);padding:14px 32px;border-radius:999px}
+
+  @media(max-width:760px){
+    .navlinks{display:none}
+    .hamburger{display:flex}
+  }
+
+  /* ---------- buttons ---------- */
+  .btn{display:inline-block;font-family:var(--body);font-weight:500;font-size:1rem;padding:14px 28px;border-radius:999px;text-decoration:none;cursor:pointer;transition:transform .18s ease, box-shadow .18s ease;border:2px solid transparent}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-teal{background:var(--teal);color:var(--cream);box-shadow:0 6px 18px rgba(10,75,94,0.18)}
+  .btn-clay{background:var(--clay);color:var(--ink);box-shadow:0 6px 18px rgba(198,139,123,0.25)}
+  .btn-ghost{background:transparent;color:var(--teal);border-color:var(--teal)}
+
+  /* ---------- hero ---------- */
+  .hero{padding:90px 0 70px;text-align:center}
+  .hero .tagline{font-family:var(--display);font-style:italic;font-size:1.25rem;color:var(--sage);margin-bottom:18px}
+  .hero h1{font-size:clamp(2.6rem,6vw,4.4rem);margin-bottom:22px}
+  .hero p.lead{font-size:1.15rem;max-width:620px;margin:0 auto 34px;opacity:0.9}
+  .hero .ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  .reveal{opacity:0;transform:translateY(16px);animation:rise .7s ease forwards}
+  .d1{animation-delay:.05s}.d2{animation-delay:.18s}.d3{animation-delay:.31s}.d4{animation-delay:.44s}
+  @keyframes rise{to{opacity:1;transform:none}}
+  @media(prefers-reduced-motion:reduce){.reveal{animation:none;opacity:1;transform:none}}
+
+  /* ---------- sections ---------- */
+  section{padding:72px 0}
+  .section-head{max-width:640px;margin-bottom:48px}
+  .section-head h2{font-size:clamp(1.9rem,4vw,2.7rem);margin-bottom:14px}
+  .section-head p{font-size:1.08rem;opacity:0.88}
+
+  .promise{background:var(--teal);color:var(--cream)}
+  .promise h2{color:var(--cream)}
+  .promise .eyebrow{color:var(--clay)}
+  .promise p{font-size:clamp(1.3rem,3vw,1.9rem);font-family:var(--display);line-height:1.4;max-width:820px}
+  .promise strong{color:var(--clay);font-weight:600}
+
+  /* how it works */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+  @media(max-width:760px){.steps{grid-template-columns:1fr;gap:28px}}
+  .step .num{font-family:var(--display);font-size:3rem;color:var(--clay);line-height:1;margin-bottom:10px}
+  .step h3{font-size:1.3rem;margin-bottom:8px}
+  .step p{opacity:0.88}
+
+  /* two paths */
+  .paths{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  @media(max-width:760px){.paths{grid-template-columns:1fr}}
+  .card{background:#fffdf8;border:1px solid rgba(30,46,40,0.1);border-radius:18px;padding:38px;transition:transform .2s ease, box-shadow .2s ease}
+  .card:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(10,75,94,0.1)}
+  .card h3{font-size:1.7rem;margin-bottom:14px}
+  .card p{opacity:0.9;margin-bottom:22px}
+
+  /* pricing */
+  .pricing{background:#efe8db}
+  .price-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:720px}
+  @media(max-width:760px){.price-grid{grid-template-columns:1fr}}
+  .price{background:var(--cream);border:1px solid rgba(30,46,40,0.1);border-radius:18px;padding:32px}
+  .price h3{font-size:1.3rem;margin-bottom:6px}
+  .price .amt{font-family:var(--display);font-size:2.1rem;color:var(--ink);margin:10px 0 4px}
+  .price .sub{font-size:0.92rem;opacity:0.75;margin-bottom:16px}
+  .price ul{list-style:none;font-size:0.95rem}
+  .price li{padding:6px 0 6px 24px;position:relative}
+  .price li::before{content:"";position:absolute;left:0;top:13px;width:9px;height:9px;border-radius:50%;background:var(--teal-bright)}
+
+  /* faq */
+  .faq-grid{max-width:720px}
+  .faq-item{border-bottom:1px solid rgba(30,46,40,0.12);padding:22px 0}
+  .faq-item:last-child{border-bottom:none}
+  .faq-q{font-family:var(--display);font-size:1.2rem;color:var(--teal);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;background:none;border:none;width:100%;text-align:left;padding:0;font-weight:600;line-height:1.3}
+  .faq-q::after{content:"+";font-family:var(--body);font-size:1.4rem;color:var(--clay);flex-shrink:0;transition:transform .25s ease}
+  .faq-item.open .faq-q::after{transform:rotate(45deg)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease, padding .35s ease;padding:0;font-size:1rem;opacity:0.88;line-height:1.65}
+  .faq-item.open .faq-a{max-height:400px;padding:14px 0 4px}
+
+  /* founder */
+  .founder{display:grid;grid-template-columns:0.8fr 1.2fr;gap:48px;align-items:center}
+  @media(max-width:760px){.founder{grid-template-columns:1fr;gap:28px}}
+  .founder .photo{aspect-ratio:1;border-radius:18px;background:var(--sage);display:flex;align-items:center;justify-content:center;color:var(--cream);font-family:var(--display);font-size:1rem;text-align:center;padding:20px}
+  .founder blockquote{font-family:var(--display);font-size:clamp(1.3rem,2.6vw,1.7rem);line-height:1.4;color:var(--teal)}
+  .founder .sig{margin-top:18px;font-family:var(--body);font-size:0.95rem;opacity:0.8}
+
+  /* final cta */
+  .final{background:var(--teal);color:var(--cream);text-align:center}
+  .final h2{color:var(--cream);font-size:clamp(2rem,4vw,3rem);margin-bottom:14px}
+  .final .tagline{font-family:var(--display);font-style:italic;color:var(--clay);font-size:1.2rem;margin-bottom:28px}
+  .final .ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  .final .btn-ghost{color:var(--cream);border-color:var(--cream)}
+
+  /* footer */
+  footer{background:var(--ink);color:var(--cream);padding:54px 0 30px;font-size:0.92rem}
+  footer .ftop{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;margin-bottom:30px}
+  footer .brand{color:var(--cream)}
+  footer a{color:var(--cream);opacity:0.8;text-decoration:none;transition:opacity .2s}
+  footer a:hover{opacity:1}
+  footer .links{display:flex;gap:22px;flex-wrap:wrap;align-items:center}
+  .safety{background:rgba(245,240,232,0.07);border-radius:12px;padding:18px 22px;font-size:0.88rem;opacity:0.85;max-width:680px;margin-bottom:26px;line-height:1.55}
+  .copyright{opacity:0.55;font-size:0.82rem}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="#" class="brand" aria-label="Aldeara home">AL<span class="dear">DEAR</span>A</a>
+    <div class="navlinks">
+      <a href="#how">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#founder">Our story</a>
+      <a href="#faq">FAQ</a>
+      <!-- TODO: APP_URL -->
+      <a href="https://match.aldeara.com" class="nav-cta">Open the app</a>
+    </div>
+    <button class="hamburger" aria-label="Menu" onclick="this.classList.toggle('open');document.getElementById('mobileMenu').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#how" onclick="document.getElementById('mobileMenu').classList.remove('open');document.querySelector('.hamburger').classList.remove('open')">How it works</a>
+  <a href="#pricing" onclick="document.getElementById('mobileMenu').classList.remove('open');document.querySelector('.hamburger').classList.remove('open')">Pricing</a>
+  <a href="#founder" onclick="document.getElementById('mobileMenu').classList.remove('open');document.querySelector('.hamburger').classList.remove('open')">Our story</a>
+  <a href="#faq" onclick="document.getElementById('mobileMenu').classList.remove('open');document.querySelector('.hamburger').classList.remove('open')">FAQ</a>
+  <!-- TODO: APP_URL -->
+  <a href="https://match.aldeara.com" class="nav-cta">Open the app</a>
+</div>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap">
+    <p class="tagline reveal d1">Childcare matched, not listed.</p>
+    <h1 class="reveal d2">Care that fits your life,<br>not just your calendar.</h1>
+    <p class="lead reveal d3">A childcare matching platform built by a career nanny. Caregivers are seen for free, and families and caregivers match on values and fit — not just rate and availability. Serving New England.</p>
+    <div class="ctas reveal d4">
+      <!-- TODO: APP_URL -->
+      <a href="https://match.aldeara.com" class="btn btn-teal">I'm a caregiver — join free</a>
+      <a href="https://match.aldeara.com" class="btn btn-clay">I'm a family — find care</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROMISE ================= -->
+<section class="promise">
+  <div class="wrap">
+    <p class="eyebrow">Why Aldeara exists</p>
+    <p>The big platforms charge caregivers to be seen and match on almost nothing. Aldeara does the opposite. <strong>Caregivers are never charged.</strong> Families and caregivers match on values, care philosophy, and how a home actually feels — and <strong>families only pay once they've found someone worth talking to.</strong></p>
+  </div>
+</section>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">How it works</p>
+      <h2>Matched on what actually matters.</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <h3>Build your profile</h3>
+        <p>Answer 30+ questions across logistics, values, care philosophy, and personality. Screen time rules, discipline approach, independence, faith, communication style — all of it. It takes about 10 minutes, and every question shapes who you see.</p>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h3>Match on the non-negotiables</h3>
+        <p>Hard filters handle the dealbreakers silently — faith expectations, LGBTQ+ affirmation, comfort with firearms or work-from-home parents — so a mismatch never shows up in your queue. You see your strongest matches first.</p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h3>Connect directly</h3>
+        <p>Move through your matches, read their prompts and references, and start a conversation with the ones who fit. No algorithm hand-picks for you — a nanny's judgment is built into what the platform decides matters.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TWO PATHS ================= -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="paths">
+      <div class="card">
+        <p class="eyebrow">For caregivers</p>
+        <h3>You'll never pay to be seen.</h3>
+        <p>No subscription to show up, no premium tier, no pay-to-play — ever. Free to join, free to be matched, free to message. Built by a nanny who got tired of how it works everywhere else.</p>
+        <!-- TODO: APP_URL -->
+        <a href="https://match.aldeara.com" class="btn btn-teal">Join free</a>
+      </div>
+      <div class="card">
+        <p class="eyebrow">For families</p>
+        <h3>Find someone who fits your actual life.</h3>
+        <p>Match on your values, your home, and your way of doing things — not just an open slot on a calendar. Your first match conversation is completely free, no card required.</p>
+        <!-- TODO: APP_URL -->
+        <a href="https://match.aldeara.com" class="btn btn-clay">Find care</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRICING ================= -->
+<section id="pricing" class="pricing">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Pricing, in plain English</p>
+      <h2>No hidden fees. No fake leads.</h2>
+      <p>Caregivers are always free. Families try their first match conversation at no cost, then subscribe to keep connecting. That's all there is.</p>
+    </div>
+    <div class="price-grid">
+      <div class="price">
+        <h3>Caregivers</h3>
+        <div class="amt">Free</div>
+        <div class="sub">Always. No exceptions.</div>
+        <ul>
+          <li>Visible and matchable for free</li>
+          <li>Unlimited messaging</li>
+          <li>Request and receive references</li>
+          <li>No subscription required — ever</li>
+        </ul>
+      </div>
+      <div class="price">
+        <h3>Families</h3>
+        <div class="amt">First match free</div>
+        <div class="sub">Then $24.99/mo · $60/qtr · $199/yr</div>
+        <ul>
+          <li>First conversation — no card needed</li>
+          <li>Subscribe only to keep matching</li>
+          <li>Dual-parent compatibility matching</li>
+          <li>Cancel anytime</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Questions</p>
+      <h2>Frequently asked.</h2>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">How is Aldeara different from Care.com or Sittercity?</button>
+        <div class="faq-a">Those platforms are directories — they list everyone and let you sort by rate, distance, and availability. Aldeara matches you on values, care philosophy, personality, and the logistics that actually matter to your household. Caregivers are never charged to be seen, and families only pay after their first free conversation.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is it really free for caregivers?</button>
+        <div class="faq-a">Yes. No subscription, no premium tier, no pay-to-play. You can join, build your profile, get matched, message families, and request references — all without paying anything. This isn't a trial. It's the model.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">How does the matching actually work?</button>
+        <div class="faq-a">You answer 30+ questions across logistics (schedule, pay, transportation, certifications), values (discipline, screen time, outdoor play, independence), and personality (communication style, energy, what a good day looks like). The algorithm scores compatibility across all of it. Hard-gate questions — like faith expectations, LGBTQ+ affirmation, and comfort with firearms — filter silently so a serious mismatch never appears in your queue.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">What does "first match free" mean for families?</button>
+        <div class="faq-a">Your first matched conversation is completely free — no credit card required. You can message, schedule an interview, and decide if it's a fit. If you want to connect with more caregivers after that, you subscribe. Think of it as trying before you commit.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is dual-parent matching?</button>
+        <div class="faq-a">If you have a partner, they can take the 8-question personality quiz separately. Aldeara then matches caregivers against both of your answers, so the person you hire fits the whole household — not just whoever filled out the profile.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Does Aldeara run background checks?</button>
+        <div class="faq-a">Not in this version. Aldeara is a matching platform — we help you find someone who fits, but we don't screen, verify, or endorse any user. Please vet your matches as carefully as you would anyone you bring into your home. We plan to add verified background check integration in a future update.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">How do references work?</button>
+        <div class="faq-a">Both caregivers and families can request references from people they've worked with. The reference giver receives an email with a secure link, fills out a short form (star rating, written reference, and whether they'd work together again), and the completed reference appears on the requester's profile. No login required for the person leaving the reference.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">What areas do you serve?</button>
+        <div class="faq-a">Aldeara is launching in the Portsmouth–Boston corridor and greater New England. The platform works anywhere, but our initial caregiver community is concentrated in this region. If you're outside New England and want to be notified when we expand, join and we'll reach out.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I cancel anytime?</button>
+        <div class="faq-a">Yes. Family subscriptions can be cancelled at any time through your Stripe billing portal. No contracts, no cancellation fees, no hoops.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOUNDER ================= -->
+<section id="founder">
+  <div class="wrap">
+    <div class="founder">
+      <!-- TODO: replace with your real founder photo -->
+      <div class="photo">[ Founder photo ]</div>
+      <div>
+        <p class="eyebrow">Built by a nanny</p>
+        <blockquote>"After my last placement ended over a values mismatch I couldn't bridge — with a toddler at home — I built the thing I'd wished existed the whole time I was looking for work."</blockquote>
+        <p class="sig">— Rowan, founder of Aldeara · career nanny, nearly a decade &nbsp;·&nbsp; <a href="#" style="color:var(--teal-bright);font-weight:500;text-decoration:underline">Read the whole story →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="final">
+  <div class="wrap">
+    <p class="tagline">Childcare matched, not listed.</p>
+    <h2>Come find your people.</h2>
+    <div class="ctas">
+      <!-- TODO: APP_URL -->
+      <a href="https://match.aldeara.com" class="btn btn-clay">I'm a caregiver — join free</a>
+      <a href="https://match.aldeara.com" class="btn btn-ghost">I'm a family — find care</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="ftop">
+      <a href="#" class="brand">AL<span style="color:var(--clay)">DEAR</span>A</a>
+      <div class="links">
+        <!-- TODO: social + email -->
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="mailto:hello@aldeara.com">hello@aldeara.com</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+    <div class="safety">
+      <strong>A note on safety.</strong> Aldeara helps families and caregivers find and connect with each other. We do not run background checks in this version, so please vet your matches as carefully as you would any caregiver or family you bring into your home. Trust is built between you — we just help you meet.
+    </div>
+    <div class="copyright">&copy; 2026 Aldeara. Serving the Portsmouth–Boston corridor and New England.</div>
+  </div>
+</footer>
+
+</body>
+</html>
